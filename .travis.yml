@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+  
+before_install:
+  - docker build -t aiiks/docker-react -f Dockerfile.dev .
+  
+script:
+  - docker run aiiks/docker-react npm run test -- --coverage
